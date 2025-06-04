@@ -27,9 +27,9 @@
   </style>
 </head>
 <body>
-  <h1>Quotopia</h1>
-  <div id="quote">Loading...</div>
-  <button onclick="getQuote()">New Quote</button>
+  <h1>Welcome to Quotopia</h1>
+  <div id="quote">Loading quote...</div>
+  <button onclick="getQuote()">Get New Quote</button>
 
   <script>
     async function getQuote() {
@@ -37,12 +37,12 @@
         const res = await fetch("https://api.quotable.io/random");
         const data = await res.json();
         document.getElementById("quote").textContent = "${data.content}" — ${data.author};
-      } catch (error) {
-        document.getElementById("quote").textContent = "Failed to load quote. Please try again.";
+      } catch (err) {
+        document.getElementById("quote").textContent = "Couldn't fetch quote. Please check your internet.";
       }
     }
 
-    getQuote(); // Load one when the page opens
+    getQuote();
   </script>
 </body>
 </html>
